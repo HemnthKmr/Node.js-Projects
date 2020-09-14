@@ -16,10 +16,15 @@ const readNote = (title) => {
 
 const listNote = () => {
     const notes = loadNotes();
-    console.log(chalk.inverse("\n Your List:"));
-    notes.forEach(note => {
-        console.log(`${chalk.redBright(note.title)}: ${chalk.blue(note.body)}`);
-    });
+    if (notes.length > 0) {
+        console.log(chalk.inverse("\n Your List:"));
+        notes.forEach(note => {
+            console.log(`${chalk.redBright(note.title)}: ${chalk.blue(note.body)}`);
+        });
+    } else {
+        console.log(chalk.redBright("Your list is empty!"))
+    }
+
 }
 
 const removeNote = (title) => {
